@@ -1,0 +1,56 @@
+{
+  "name": "node-ts-boilerplate",
+  "version": "0.0.0",
+  "description": "",
+  "keywords": [],
+  "author": "Allie Jones <allie@alliejon.es>",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "scripts": {
+    "type-check": "tsc --noEmit",
+    "type-check:watch": "npm run type-check -- --watch",
+    "build": "npm run build:types && npm run build:js",
+    "build:types": "tsc --emitDeclarationOnly",
+    "build:js": "webpack --mode=production",
+    "js:watch": "webpack --mode=development --watch",
+    "test": "jest --coverage",
+    "dev-server": "webpack-dev-server",
+    "start": "concurrently npm:js:watch npm:dev-server npm:type-check:watch --names webpack,dev-server,tsc --prefix-colors red.bold,green.bold,blue.bold"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.7.4",
+    "@babel/core": "^7.7.4",
+    "@babel/plugin-proposal-class-properties": "^7.7.4",
+    "@babel/plugin-proposal-numeric-separator": "^7.7.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.7.4",
+    "@babel/preset-env": "^7.8.6",
+    "@babel/preset-typescript": "^7.7.4",
+    "@types/jest": "^25.1.3",
+    "@types/node": "^13.7.1",
+    "@typescript-eslint/eslint-plugin": "^2.9.0",
+    "@typescript-eslint/parser": "^2.9.0",
+    "babel-jest": "^25.1.0",
+    "babel-loader": "^8.0.6",
+    "babel-polyfill": "^6.26.0",
+    "concurrently": "^5.0.0",
+    "eslint-config-prettier": "^6.7.0",
+    "eslint-plugin-jest": "^23.7.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint": "^6.7.2",
+    "glob": "^7.1.6",
+    "html-webpack-plugin": "^4.2.0",
+    "jest-environment-jsdom": "^25.1.0",
+    "jest": "^25.1.0",
+    "prettier": "^2.0.4",
+    "typescript": "3.8.3",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.10.3",
+    "webpack": "^4.41.2"
+  }
+}
